@@ -1,0 +1,9 @@
+<?php
+$script = $block->cleverpushJs();
+
+if (!empty($script)) {
+    $url = $this->getUrl('cleverpush/assets/worker');
+    echo "<script>window.cleverPushConfig = { serviceWorkerFile: '$url' };</script>";
+    echo "<script src=\"$script\" async></script>";
+}
+?>

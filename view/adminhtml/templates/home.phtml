@@ -1,0 +1,33 @@
+<?php
+$channelId = $block->getChannelId();
+$isNew = 0;
+$user = $block->getStore();
+$user = json_encode($user);
+$formAction = $block->getUrl("cleverpush/home/register");
+$siteUrl = $block->getbaseUrl();
+$cleverpushLogo = $block->getViewFileUrl('Cleverpush_WebPush::images/logo.png');
+?>
+
+<img src="<?php echo $block->escapeUrl($cleverpushLogo); ?>" class="cleverpush-logo">
+
+<h2 class="plugin-h2-title">CleverPush Channel ID</h2>
+<form method="post" action='<?php echo $block->escapeUrl($formAction); ?>'>
+    <div class="plugin-inside-box">
+        <input type="text" name="channelId" id="channelId" value="<?php echo $channelId; ?>" class="admin__control-text" style="margin-bottom: 15px" placeholder="Channel ID…">
+        <?php echo $block->getBlockHtml('formkey'); ?>
+        <button type='submit' class="action-default primary" name='tokensubmit' value='submit'>
+        Save
+        </button>
+    </div>
+</form> 
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CleverPush/js/admin": {
+                "izUser": <?php /* @noEscape */ echo $user; ?>,
+                "siteUrl": "<?php echo $block->escapeUrl($siteUrl); ?>"
+            }
+        }
+    }
+</script>
