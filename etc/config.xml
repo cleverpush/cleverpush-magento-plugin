@@ -5,6 +5,7 @@
             <settings>
                 <enable>1</enable>
                 <channel_id></channel_id>
+                <script_disabled></script_disabled>
             </settings>
         </corecleverpush>
     </default>

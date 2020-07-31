@@ -11,9 +11,15 @@
             <resource>Cleverpush_WebPush::cleverpush_settings</resource>
             <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Settings</label>
+
                 <field id="channel_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Channel ID</label>
                     <comment>CleverPush Channel ID</comment>
+                </field>
+
+                <field id="script_disabled" translate="label" type="checkbox" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Script disabled</label>
+                    <comment>Check this to disable the CleverPush script in your source code</comment>
                 </field>
             </group>
         </section>

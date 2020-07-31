@@ -43,6 +43,18 @@ class Home extends \Magento\Framework\View\Element\Template
           $channelId = $this->scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
           return $channelId;
     }
+    
+    /**
+     * Get cleverpush script disabled
+     *
+     * @return boolean
+     */
+    public function getScriptDisabled()
+    {
+          $path = "corecleverpush/settings/script_disabled";
+          $scriptDisabled = $this->scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+          return $scriptDisabled !== 'on' && $scriptDisabled !== 'true';
+    }
 
     /**
      * Add block on frontend
@@ -52,7 +64,8 @@ class Home extends \Magento\Framework\View\Element\Template
     public function cleverpushJs()
     {
         $channelId = $this->getChannelId();
-        if (!empty($channelId)) {
+        $scriptDisabled = $this->getScriptDisabled();
+        if (!empty($channelId) && !$scriptDisabled) {
             return "https://static.cleverpush.com/channel/loader/$channelId.js";
         }
         return '';
