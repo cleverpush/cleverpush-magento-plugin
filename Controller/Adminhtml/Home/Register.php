@@ -63,7 +63,7 @@ class Register extends \Magento\Backend\App\Action
         
         if (!empty($post['channelId'])) {
             $channelId = $post['channelId'];
-            $scriptDisabled = $post['scriptDisabled'];
+            $scriptDisabled = !empty($post['scriptDisabled']) ? true : false;
 
             $this->configSave->save('corecleverpush/settings/channel_id', $channelId);
             $this->configSave->save('corecleverpush/settings/script_disabled', $scriptDisabled);

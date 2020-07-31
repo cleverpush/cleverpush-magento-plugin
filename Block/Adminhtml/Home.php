@@ -53,7 +53,7 @@ class Home extends \Magento\Framework\View\Element\Template
     {
           $path = "corecleverpush/settings/script_disabled";
           $scriptDisabled = $this->scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-          return $scriptDisabled !== 'on' && $scriptDisabled !== 'true';
+          return !empty($scriptDisabled) && $scriptDisabled;
     }
 
     /**
